@@ -2,32 +2,116 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Typography */
+.h1 {
+	@apply text-4xl font-extrabold tracking-tighter;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.h2 {
+	@apply text-3xl font-extrabold tracking-tighter;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.h3 {
+	@apply text-3xl font-extrabold;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.h4 {
+	@apply text-2xl font-extrabold tracking-tight;
+}
+
+@screen md {
+	.h1 {
+			@apply text-5xl;
+	}
+
+	.h2 {
+			@apply text-4xl;
+	}
+}
+
+/* Buttons */
+.btn,
+.btn-lg,
+.btn-sm,
+.btn-xs {
+	@apply font-medium text-sm inline-flex items-center justify-center border border-transparent rounded leading-5 shadow-sm transition duration-150 ease-in-out;
+}
+
+.btn {
+	@apply px-3 py-2;
+}
+
+.btn-lg {
+	@apply px-4 py-3;
+}
+
+.btn-sm {
+	@apply px-2 py-1;
+}
+
+.btn-xs {
+	@apply px-2 py-0.5;
+}
+
+/* Forms */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+-webkit-appearance: none;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-radio,
+.form-dropdown {
+	@apply text-sm text-slate-800 bg-white border;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select,
+.form-checkbox,
+.form-dropdown {
+	@apply rounded;
+}
+
+.form-input,
+.form-textarea,
+.form-multiselect,
+.form-select {
+	@apply leading-5 py-2 px-3 border-slate-200 hover:border-slate-300 focus:border-indigo-300 shadow-sm;
+}
+
+.form-dropdown {
+	@apply leading-5 py-2 px-2 border-none hover:border-none focus:border-none focus:ring-0 shadow-sm;
+}
+
+.form-input,
+.form-textarea,
+.form-dropdown {
+	@apply placeholder-slate-400;
+}
+
+.form-select {
+	@apply pr-10;
+}
+
+.form-checkbox,
+.form-radio {
+	@apply text-indigo-500 border border-slate-300;
+}
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+
+.no-scrollbar {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
 }

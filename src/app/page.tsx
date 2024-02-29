@@ -1,113 +1,103 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+import CalculateForm from "@/app/components/calculate-tax";
+import Image01 from "../../public/jakub-zerdzicki-yXACBC3cioc-unsplash.jpg";
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+export const metadata = {
+	title: 'Deklariram.cz',
+	description: 'Бърз калкулатор за деклариране на данъци за 2023 г.',
+}
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+export default function FormLibrary() {
+	return (
+		<div className="relative bg-white dark:bg-slate-900 h-full">
+			<div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[96rem] mx-auto">
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+				<Image className="w-full h-96 object-cover rounded-lg mb-8" src={Image01} alt="Image 01" priority={true} />
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+				{/* Page header */}
+				<div className="mb-8">
+					<h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Бърз калкулатор за деклариране на данъци за 2023 г.</h1>
+				</div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+				<div className="border-t border-slate-200 dark:border-slate-700">
+					{/* Components */}
+					<div className="space-y-8 mt-8">
+
+						<div className="text-slate-600 dark:text-slate-400">
+							<p className="mb-6">Този калкулатор е предназначен за лица, които са работили в Чехия през 2023 г. и са получили формуляри от работодателите си. Калкулаторът е опростен и не включва всички възможни сценарии. За точно изчисление, свържете се с нас на <a href="mailto:info@deklariram.cz" className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">info@deklariram.cz</a>.</p>
+							<p className="mb-6">За стойностите по-долу използвайте формуляра, озаглавен <strong>Potvrzení o zdanitelných příjmech ze závislé činnosti, zálohách na daň z těchto příjmů a daňovém zvýhodnění</strong>. Този формуляр може да бъде получен при поискване от вашия работодател.</p>
+						</div>
+
+						<CalculateForm />
+
+						<div>
+							<h2 className="text-2xl text-slate-800 dark:text-slate-100 font-bold mb-4">Въпроси и отговори</h2>
+							{/* Post */}
+							<article className="py-4 border-b border-slate-200 dark:border-slate-700">
+								<header className="flex items-start mb-2">
+									<div className="mt-2 mr-3">
+										<svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
+											<path className="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+											<path className="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+										</svg>
+									</div>
+									<h3 className="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">Имал/а съм повече от един работодател за 2023 г.</h3>
+								</header>
+								<div className="pl-7">
+									<div className="mb-2">Съберете всички суми от ред 1, 8 и 9 от всички формуляри, които сте получили от работодателите си. След това въведете общата сума в съответните полета.</div>
+								</div>
+							</article>
+							{/* Post */}
+							<article className="py-4 border-b border-slate-200 dark:border-slate-700">
+								<header className="flex items-start mb-2">
+									<div className="mt-2 mr-3">
+										<svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
+											<path className="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+											<path className="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+										</svg>
+									</div>
+									<h3 className="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">Имам дете/деца под 18 г. (или студент до 26 г.), за които се ползва данъчен кредит за зависими лица</h3>
+								</header>
+								<div className="pl-7">
+									<div className="mb-2">Въведете сумата на получения данъчен бонус в съответното поле. Право на данъчен бонус имат само лицата с деца, за които се ползва данъчен кредит за зависими деца.</div>
+								</div>
+							</article>
+							{/* Post */}
+							<article className="py-4 border-b border-slate-200 dark:border-slate-700">
+								<header className="flex items-start mb-2">
+									<div className="mt-2 mr-3">
+										<svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
+											<path className="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+											<path className="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+										</svg>
+									</div>
+									<h3 className="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">Имам дете/деца под 18 г. (или студент до 26 г.), за които НЕ СЪМ ползвал/а данъчен кредит за зависими лица</h3>
+								</header>
+								<div className="pl-7">
+									<div className="mb-2">Този калкулатор не е подходящ за вас. За точно изчисление, свържете се с нас на <a href="mailto:info@deklariram.cz" className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">info@deklariram.cz</a>.</div>
+								</div>
+							</article>
+							{/* Post */}
+							<article className="py-4 border-b border-slate-200 dark:border-slate-700">
+								<header className="flex items-start mb-2">
+									<div className="mt-2 mr-3">
+										<svg className="w-4 h-4 shrink-0 fill-current" viewBox="0 0 16 16">
+											<path className="text-indigo-300" d="M4 8H0v4.9c0 1 .7 1.9 1.7 2.1 1.2.2 2.3-.8 2.3-2V8z" />
+											<path className="text-indigo-500" d="M15 1H7c-.6 0-1 .4-1 1v11c0 .7-.2 1.4-.6 2H13c1.7 0 3-1.3 3-3V2c0-.6-.4-1-1-1z" />
+										</svg>
+									</div>
+									<h3 className="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold">Имам друг проблем/въпрос</h3>
+								</header>
+								<div className="pl-7">
+									<div className="mb-2">Свържете се с нас на <a href="mailto:info@deklariram.cz" className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">info@deklariram.cz</a>.</div>
+								</div>
+							</article>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	)
 }
